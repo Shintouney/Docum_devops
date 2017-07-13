@@ -1,7 +1,8 @@
 # Postgresql
 ![gras](logo.png)
 
-## Install - Ubuntu
+### Ubuntu
+## Installation {#install}
 
 Step 1 - Ajout de la source postgresql
 
@@ -21,6 +22,28 @@ Step 3 - Mise à jours des package et installations du programme
     sudo apt-get install postgresql-common
     sudo apt-get install postgresql-9.5 libpq-dev
 
-## Create utilisateur
+## Création d'un utilisateur {#create-user}
 
+Création de l'utilisateur ** shinta **
 
+    sudo -u postgres createuser shinta -s
+
+## Connection {#connect}
+
+Pour se connecter à l'invite de postgresql
+
+    sudo -u postgres psql
+
+## Modification du mot de passe {#change-password}
+
+Connectez vous à psql, le prompt ** postgres=# ** devrais s'afficher, entrer la commande suivante pour
+effectuer la modification
+
+    # If you would like to set a password for the user, you can do the following
+    postgres=# \password shinta
+
+## Création d'une base de donnée {#create-bdd}
+
+Création de la base ** mybdd ** avec comme proprietaire ** shinta **
+
+    CREATE DATABASE mybdd WITH OWNER shinta ENCODING 'UTF8';
